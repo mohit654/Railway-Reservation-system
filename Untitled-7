@@ -1,0 +1,287 @@
+ $train_no=$row["train_no"];
+    $sql1="SELECT train_name,from_station,to_station,arrival,departure from train_details where train_no='$train_no')";
+$ins=mysqli_query($sql1);
+    while($row1=mysql_fetch_array($ins))
+        <tr>
+        <td><?php echo $row1['train_name'] ?></td>
+        <td><?php echo $row['arrival'] ?></td>
+        </tr>
+        <?php
+        
+        
+        
+        
+        
+<?php
+include('session.php');
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "trains";
+mysql_connect($dbhost,$dbuser,$dbpass) or die('cannot connect to the server'); 
+mysql_select_db($dbname) or die('database selection problem');
+?>
+
+
+<?php
+ $sql="SELECT train_no FROM trains_booked where uname='$login_session'";
+ $result_set=mysql_query($sql);
+ while($row=mysql_fetch_array($result_set))
+ {
+  ?>
+        <tr>
+        <td><?php echo $row['uname'] ?></td>
+        <td><?php echo $row['train_no'] ?></td>
+        </tr>
+        <?php
+ }
+ ?>    
+  
+  
+  
+  ''''''''''''''''''''''''''''''
+  <?php
+ $sql="SELECT * FROM train_booked where uname='$login_session'";
+ $result_set=mysql_query($sql);
+ while($row=mysql_fetch_array($result_set))
+ {
+  ?>
+    $train_number=$row["train_no"]
+     $sql1="SELECT train_name,from_station,to_station,arrival,departure from train_details where train_no='$train_number'";
+     $ins=mysqli_query($sql1);
+    $row1=mysql_fetch_array($ins)
+        <tr>
+        <td><?php echo $row1['train_name'] ?></td>
+        <td><?php echo $row1['train_no'] ?></td>
+        </tr>
+        <?php
+ }
+ ?> 
+ '''''''''''''''''''''''''''
+ INITIAL
+ <?php
+ $sql="SELECT * FROM train_booked where uname='$login_session'";
+ $result_set=mysql_query($sql);
+ while($row=mysql_fetch_array($result_set))
+ {
+  ?>
+        <tr>
+        <td><?php echo $row['uname'] ?></td>
+        <td><?php echo $row['train_no'] ?></td>
+        </tr>
+        <?php
+ }
+ ?> 
+    
+    ------------------------------------
+    
+<?php
+   include('session.php');
+   $con1=mysqli_connect("localhost","root","","trains");$sql = "SELECT train_name,train_no,arrival,departure from train_details where from_station='$from' and to_station='$to'";
+$ins1=mysqli_query($conn,$sql);
+while($row=mysqli_fetch_array($ins1))
+   $sql2="select * from train_details where uname='$login_session';
+   $result2=mysqli_query($con1,$sql2);
+   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+?>
+
+-------------------------------------
+
+    <?php
+// create a variable
+
+$final=$_POST['final'];
+echo "<input type='hidden' name='abcd' value='$final'>";
+$class=$_POST['class'];
+//Execute the query
+$conn = mysqli_connect("localhost","root","","trains");
+  <select id="ID" onchange = "showForm()">
+    Class
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+  </select>
+
+ <div id = "f1" style = "display:none">
+   second table
+ </div>
+
+  <div id = "f2" style = "display:none">
+   third table
+ </div>
+
+  <div id = "f3" style = "display:none">
+   fourth table
+ </div>
+</form>
+---------------------------------------------------
+</script>
+</tr>
+</table>
+</td>
+<td cell-padding="10px" style="padding:50px;width:300px;border-left:2px solid red;border-right:2px solid red;">
+<div align='center' style="box-shadow:12px 15px 15px rgba(0,255,255);border:2px dotted blue">
+<form action='pricefinal.php' method='POST'>
+<table width="80%" border="1" style="background-color:#FAFAD2;">
+<tr>
+    <th>-Select-</th>
+    <th>Train No.</th>
+    <th>Class</th>
+    <th>Price</th>
+</tr>
+    <?php
+// create a variable
+
+$final=$_POST['final'];
+echo "<input type='hidden' name='abcd' value='$final'>";
+$class=$_POST['class'];
+//Execute the query
+$conn = mysqli_connect("localhost","root","","trains");
+
+$sql = "INSERT into train_book(uname,train_no,class) values('$login_session','$final','$class')";
+    $ins=mysqli_query($conn,$sql);
+    $sql="SELECT train_no a,class b,price c FROM fare where train_no='$final' and class='$class'";
+    $res=mysqli_query($conn,$sql);
+    while($row=mysqli_fetch_assoc($res))
+    {
+        $x=$row['c'];
+        echo "<tr>";
+        echo "<td><input type='radio' name='price' value='$x'></input></td>";
+        echo "<td>" . $row['a'] . "</td>";
+        echo "<td>" . $row['b'] . "</td>";
+        echo "<td>" . $row['c'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    ?>
+        <br><br>
+    <input type='submit' value='Book'></input>
+    </form>
+</div>
+    <a href="reg16.php"> view tickets
+<script>
+
+---------------------
+new try class
+
+<form action='pricefinal.php' method='POST'>
+<table width="80%" border="1" style="background-color:#FAFAD2;">
+<tr>
+    <th>-Select-</th>
+    <th>Train No.</th>
+    <th>Class</th>
+    <th>Price</th>
+</tr>
+    <?php
+// create a variable
+
+$final=$_POST['final'];
+echo "<input type='hidden' name='abcd' value='$final'>";
+$class=$_POST['class'];
+//Execute the query
+$conn = mysqli_connect("localhost","root","","trains");
+    
+  <select id="ID" onchange = "showForm()">
+    Class
+    <option value="Class-1A"></option>
+    <option value="Class-2A"></option>
+    <option value="Class-3A"></option>
+  </select>
+
+ <div id = "f1" style = "display:none">
+   <form action='pricefinal.php' method='POST'>
+<table width="80%" border="1" style="background-color:#FAFAD2;">
+<tr>
+    <th>-Select-</th>
+    <th>Train No.</th>
+    <th>Class</th>
+    <th>Price</th>
+</tr>
+    <?php
+// create a variable
+
+
+$conn = mysqli_connect("localhost","root","","trains");
+    $sql="SELECT train_no a,class b,price c FROM fare where train_no='$final' and class='Class-1A'";
+    $res=mysqli_query($conn,$sql);
+    while($row=mysqli_fetch_assoc($res))
+    {
+        $x=$row['c'];
+        echo "<tr>";
+        echo "<td><input type='radio' name='price' value='$x'></input></td>";
+        echo "<td>" . $row['a'] . "</td>";
+        echo "<td>" . $row['b'] . "</td>";
+        echo "<td>" . $row['c'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    ?>
+        <br><br>
+    <input type='submit' value='Book'></input>
+    </form>
+ </div>
+
+  <div id = "f2" style = "display:none">
+   third table
+ </div>
+
+  <div id = "f3" style = "display:none">
+   fourth table
+ </div>
+</form>
+<!--
+$sql = "INSERT into train_book(uname,train_no,class) values('$login_session','$final','$class')";
+    $ins=mysqli_query($conn,$sql);
+    $sql="SELECT train_no a,class b,price c FROM fare where train_no='$final' and class='$class'";
+    $res=mysqli_query($conn,$sql);
+    while($row=mysqli_fetch_assoc($res))
+    {
+        $x=$row['c'];
+        echo "<tr>";
+        echo "<td><input type='radio' name='price' value='$x'></input></td>";
+        echo "<td>" . $row['a'] . "</td>";
+        echo "<td>" . $row['b'] . "</td>";
+        echo "<td>" . $row['c'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    ?>
+        <br><br>
+    <input type='submit' value='Book'></input>
+    </form>
+
+-------------------------------------------
+<script type="text/javascript">
+  function showForm() {
+     var selopt = document.getElementById("ID").value;
+      if (selopt ==1) {
+           document.getElementByID("f1").style.display = "block";
+           document.getElementByID("f2").style.display = "none";
+           document.getElementByID("f3").style.display = "none";
+         }
+     if (selopt==2){
+           document.getElementByID("f1").style.display = "none";
+           document.getElementByID("f2").style.display = "block";
+           document.getElementByID("f3").style.display = "none";
+
+     if (selopt==3){
+           document.getElementByID("f1").style.display = "none";
+           document.getElementByID("f2").style.display = "none";
+           document.getElementByID("f3").style.display = "block";
+     }
+     </script>
+------------------------------
+==========================================
+$sql="SELECT train_no a,class b,price c FROM fare where train_no='$final' and class='$class'";
+    $res=mysqli_query($conn,$sql);
+    while($row=mysqli_fetch_assoc($res))
+    {
+        $x=$row['c'];
+        echo "<tr>";
+        echo "<td><input type='radio' name='price' value='$x'></input></td>";
+        echo "<td>" . $row['a'] . "</td>";
+        echo "<td>" . $row['b'] . "</td>";
+        echo "<td>" . $row['c'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
